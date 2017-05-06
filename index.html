@@ -1,0 +1,175 @@
+<html>
+<head>
+<script type="text/javascript" language="javascript">
+
+var noRows=1;
+
+function WriteToFile(){
+
+var table = document.getElementById("table");
+	
+var fname = document.getElementById("fname").value;
+var letters = /^[\s A-Za-z]+$/; 
+       if(!fname.match(letters)) {
+	   alert('First name must be alphabet characters only.'); 
+	   return(false);
+	   }
+		
+var lname = document.getElementById("lname").value;
+var letters = /^[\s A-Za-z]+$/; 
+       if(!lname.match(letters)) {
+	   alert('Second name must be alphabet characters only.'); 
+	   return(false);
+	   }
+		
+var phn   = document.getElementById("phn").value;
+var numbers = /^[7-9]{1}[0-9]{9}$/;
+       if(!phn.match(numbers)){
+       alert('Phone number should contain 10 digits only');
+	   alert('phone number starts with numbers digits 7,8,9 only');
+       return(false);
+       }
+	   
+var mail  = document.getElementById("mail").value;
+var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+       if(!mail.match(pattern)){
+       alert('Please enter valid mail id');
+       return(false);
+       }
+
+var add   = document.getElementById("add").value;
+var letters = /^[\s A-Za-z0-9\&\,\.\:\-\_\/]+$/; 
+      if(!add.match(letters)){
+      alert('Please enter valid address');
+      return(false);
+      }
+ 
+var dis   = document.getElementById("dis").value;
+var letter = /^[\s A-Za-z]+$/; 
+      if(!dis.match(letter)) {
+	  alert('Please enter valid district name'); 
+	  return(false);
+	  }
+		
+var pin   = document.getElementById("pin").value;
+var value = /^\d{6}$/;
+      if(!pin.match(value)){
+	  alert('Pincode should be 6 digits only');
+	  return(false);
+	  }
+	
+var state = document.getElementById("state").value;
+var letter = /^[\s A-Za-z]+$/; 
+      if(!state.match(letter)) {
+	  alert('State name must be alphabet characters only.'); 
+	  return(false);
+	  }
+
+var row=table.insertRow(noRows);
+  
+var Row1=row.insertCell(0);
+var Row2=row.insertCell(1);
+var Row3=row.insertCell(2);
+var Row4=row.insertCell(3);
+var Row5=row.insertCell(4);
+var Row6=row.insertCell(5);
+var Row7=row.insertCell(6);
+var Row8=row.insertCell(7);
+ 
+Row1.innerHTML=fname;
+Row2.innerHTML=lname;
+Row3.innerHTML=phn;
+Row4.innerHTML=mail;
+Row5.innerHTML=add;
+Row6.innerHTML=dis;
+Row7.innerHTML=pin;
+Row8.innerHTML=state;
+   
+noRows=noRows+1;
+  
+}
+
+function clearValues(){
+   
+var fname = document.getElementById("fname").value='';
+var lname = document.getElementById("lname").value='';
+var phn   = document.getElementById("phn").value='';
+var mail  = document.getElementById("mail").value='';
+var add   = document.getElementById("add").value='';
+var dis   = document.getElementById("dis").value='';
+var pin   = document.getElementById("pin").value='';
+var state = document.getElementById("state").value='';
+
+}
+
+</script>
+
+</head>
+
+<style>
+   table {
+   border-collapse: collapse;
+   }
+   table, td, th {
+   border: 1px solid black;
+   }
+ 
+</style>
+
+<body>
+<center>
+<h1>Registration<h1>
+<table>
+<tr>
+<th>Enter First Name <span style="color:red">*</span> </th>
+<td><input type= "text" id="fname"></td>
+</tr>
+<tr>
+<th>Enter Last Name <span style="color:red">*</span> </th>
+<td><input type="text" id="lname"></td>
+</tr>
+<tr>
+<th>Enter Phone number <span style="color:red">*</span> </th>
+<td><input type="tel" id="phn"></td>
+</tr>
+<tr>
+<th>Enter Email Id <span style="color:red">*</span> </th>
+<td><input type="text" id="mail"></td>
+</tr>
+<tr>
+<th>Enter Address <span style="color:red">*</span> </th>
+<td><input type="text" id="add"></td>
+</tr>
+<tr>
+<th>Enter District <span style="color:red">*</span> </th>
+<td><input type="text" id="dis"></td>
+</tr>
+<tr>
+<th>Enter Pincode <span style="color:red">*</span> </th>
+<td><input type="Number" id="pin"></td>
+</tr>
+<tr>
+<th>Enter State <span style="color:red">*</span></th>
+<td><input type="text" id="state"></td>
+</tr>
+<tr>
+<td><input type ="submit" value ="submit" onClick = "WriteToFile()"></td>
+<td><input type ="reset" value ="Reset" onClick = "clearValues()"></td>
+</tr>
+</table>
+<br>
+<br>
+<table id="table">
+<th>First Name</th>
+<th>Second Name</th>
+<th>Phone number</th>
+<th>Email Id</th>
+<th>Address</th>
+<th>District</th>
+<th>Pincode</th>
+<th>State</th>
+
+</table>
+</center>
+</body>
+</html>
